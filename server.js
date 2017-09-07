@@ -36,6 +36,12 @@ app.get("/beers/one/:id", function(req, res) {
   });
 });
 
+app.get("/beers/list", function(req, res){
+  getAllBeers().then(function(beers) {
+    res.render("list", {beers});
+  })
+})
+
 app.post("/beers/home", function(req, res) {
   if (req.body.search) {
     res.render("searchOptions");
