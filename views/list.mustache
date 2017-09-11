@@ -2,6 +2,7 @@
 <html>
   {{>_head}}
   <body>
+
       <div class="row container main">
 
          {{#beers}}
@@ -12,7 +13,23 @@
         </div>
        {{/beers}}
 
-    </div>
+    <div class="container main center-block">
+      <div class="inner cover">
+        <h1>View Beers</h1>
+        {{#beers}}
+        <p class="lead">Click on a name to view more details.</p>
+        <div class="SearchResults">
+          <a class="result"  href='/beers/one/{{id}}'>{{name}}</a>
+          <p>{{type}} - {{brewery}}</p>
+        </div>
+       {{/beers}}
+       {{^beers}}
+        <p>Whoops, looks like there's no brews here. Want to <a class="searchlink" href="/beers/searchOptions">try another search?</a></p>
+       {{/beers}}
+
+
+     </div> <!-- end of inner cover div-->
+    </div> <!-- end of main container div-->
     {{>_footer}}
   </body>
 </html>
